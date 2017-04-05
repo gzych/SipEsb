@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-05-23 09:20:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.gzych.sipesb.objects.model.EpDaneNadawcy" table="ep_dane_nadawcy">
+        <id name="danaId" type="long">
+            <column name="dana_id" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="epMetadaneDokumentu" class="com.gzych.sipesb.objects.model.EpMetadaneDokumentu" fetch="select">
+            <column name="dana_medo_id" precision="10" scale="0" />
+        </many-to-one>
+        <property name="danaUzytkownik" type="string">
+            <column name="dana_uzytkownik" length="20" />
+        </property>
+        <property name="danaSystem" type="string">
+            <column name="dana_system" length="20" />
+        </property>
+        <property name="danaUUID" type="string">
+            <column name="dana_uuid" length="36" />
+        </property>
+    </class>
+</hibernate-mapping>

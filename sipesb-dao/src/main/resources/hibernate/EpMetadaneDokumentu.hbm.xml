@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-05-23 09:20:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.gzych.sipesb.objects.model.EpMetadaneDokumentu" table="ep_metadane_dokumentu">
+        <id name="medoId" type="long">
+            <column name="medo_id" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="epTransakcjaOdbioru" class="com.gzych.sipesb.objects.model.EpTransakcjaOdbioru" fetch="select">
+            <column name="medo_trod_id" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="epTransakcjaWyslania" class="com.gzych.sipesb.objects.model.EpTransakcjaWyslania" fetch="select">
+            <column name="medo_trwy_id" precision="10" scale="0" />
+        </many-to-one>
+        <property name="medoNazwa" type="string">
+            <column name="medo_nazwa" length="20" />
+        </property>
+        <property name="medoDataNadania" type="date">
+            <column name="medo_data_nadania" length="13" />
+        </property>
+        <property name="medoCzyTestowe" type="java.lang.Boolean">
+            <column name="medo_czy_testowe" />
+        </property>
+        <property name="medoDaneDodatkowe" type="binary">
+            <column name="medo_dane_dodatkowe" />
+        </property>
+        <property name="medoUUID" type="string">
+            <column name="medo_uuid" length="36" />
+        </property>
+        <set name="epDokuments" cascade="all" table="ep_dokument" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="doku_medo_id" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.gzych.sipesb.objects.model.EpDokument" />
+        </set>
+        <set name="epDaneNadawcies" cascade="all" table="ep_dane_nadawcy" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="dana_medo_id" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.gzych.sipesb.objects.model.EpDaneNadawcy" />
+        </set>
+        <set name="epDanePodmiotus" cascade="all" table="ep_dane_podmiotu" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="dapo_medo_id" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.gzych.sipesb.objects.model.EpDanePodmiotu" />
+        </set>
+        <set name="epSkrytkaAdreses" cascade="all" table="ep_skrytka_adres" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="skad_medo_id" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.gzych.sipesb.objects.model.EpSkrytkaAdres" />
+        </set>
+    </class>
+</hibernate-mapping>

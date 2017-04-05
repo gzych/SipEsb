@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-05-23 09:20:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.gzych.sipesb.objects.model.EpTransakcjaWyslania" table="ep_transakcja_wyslania">
+        <id name="trwyId" type="long">
+            <column name="trwy_id" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="trwyDataZalozenia" type="date">
+            <column name="trwy_data_zalozenia" length="13" />
+        </property>
+        <property name="trwyStatus" type="string">
+            <column name="trwy_status" length="20" />
+        </property>
+        <property name="trwyLogin" type="string">
+            <column name="trwy_login" length="20" />
+        </property>
+        <property name="trwyUUID" type="string">
+            <column name="trwy_uuid" length="36" />
+        </property>
+        <set name="epMetadaneDokumentus" cascade="all" inverse="true" table="ep_metadane_dokumentu" lazy="true" fetch="select">
+            <key>
+                <column name="medo_trwy_id" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.gzych.sipesb.objects.model.EpMetadaneDokumentu" />
+        </set>
+    </class>
+</hibernate-mapping>

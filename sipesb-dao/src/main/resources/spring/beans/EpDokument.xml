@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- Stock business object -->
+    <bean id="epDokumentBo" class="com.gzych.sipesb.objects.bo.impl.EpDokumentBoImpl" >
+        <property name="epDokumentDao" ref="epDokumentDao" />
+    </bean>
+
+    <!-- Stock Data Access Object -->
+    <bean id="epDokumentDao" class="com.gzych.sipesb.objects.dao.impl.EpDokumentHome" >
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+</beans>

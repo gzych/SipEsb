@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-05-23 09:20:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.gzych.sipesb.objects.model.EpSkrytkaAdres" table="ep_skrytka_adres">
+        <id name="skadId" type="long">
+            <column name="skad_id" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="epMetadaneDokumentu" class="com.gzych.sipesb.objects.model.EpMetadaneDokumentu" fetch="select">
+            <column name="skad_medo_id" precision="10" scale="0" />
+        </many-to-one>
+        <property name="skadTyp" type="string">
+            <column name="skad_typ" length="20" />
+        </property>
+        <property name="skadNazwaSkrytki" type="string">
+            <column name="skad_nazwa_skrytki" length="20" />
+        </property>
+        <property name="skadAdresSkrytki" type="string">
+            <column name="skad_adres_skrytki" length="30" />
+        </property>
+        <property name="skadUUID" type="string">
+            <column name="skad_uuid" length="36" />
+        </property>
+    </class>
+</hibernate-mapping>

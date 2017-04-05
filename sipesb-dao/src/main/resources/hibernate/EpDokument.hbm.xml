@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-05-23 09:20:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.gzych.sipesb.objects.model.EpDokument" table="ep_dokument">
+        <id name="dokuId" type="long">
+            <column name="doku_id" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="epMetadaneDokumentu" class="com.gzych.sipesb.objects.model.EpMetadaneDokumentu" fetch="select">
+            <column name="doku_medo_id" precision="10" scale="0" />
+        </many-to-one>
+        <property name="dokuNazwaPliku" type="string">
+            <column name="doku_nazwa_pliku" length="20" />
+        </property>
+        <property name="dokuTypPliku" type="string">
+            <column name="doku_typ_pliku" length="20" />
+        </property>
+        <property name="dokuZawartosc" type="binary">
+            <column name="doku_zawartosc" />
+        </property>
+        <property name="dokuUUID" type="string">
+            <column name="doku_uuid" length="36" />
+        </property>
+    </class>
+</hibernate-mapping>

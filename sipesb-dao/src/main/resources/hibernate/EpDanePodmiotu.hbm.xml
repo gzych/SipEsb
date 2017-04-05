@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-05-23 09:20:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.gzych.sipesb.objects.model.EpDanePodmiotu" table="ep_dane_podmiotu">
+        <id name="dapoId" type="long">
+            <column name="dapo_id" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="epMetadaneDokumentu" class="com.gzych.sipesb.objects.model.EpMetadaneDokumentu" fetch="select">
+            <column name="dapo_medo_id" precision="10" scale="0" />
+        </many-to-one>
+        <property name="dapoIdentyfikator" type="string">
+            <column name="dapo_identyfikator" length="50" />
+        </property>
+        <property name="dapoTypOsoby" type="string">
+            <column name="dapo_typ_osoby" length="20" />
+        </property>
+        <property name="dapoImieSkrot" type="string">
+            <column name="dapo_imie_skrot" length="20" />
+        </property>
+        <property name="dapoNazwiskoNazwa" type="string">
+            <column name="dapo_nazwisko_nazwa" length="20" />
+        </property>
+        <property name="dapoNip" type="string">
+            <column name="dapo_nip" length="15" />
+        </property>
+        <property name="dapoPesel" type="string">
+            <column name="dapo_pesel" length="15" />
+        </property>
+        <property name="dapoRegon" type="string">
+            <column name="dapo_regon" length="15" />
+        </property>
+        <property name="dapoZgoda" type="java.lang.Boolean">
+            <column name="dapo_zgoda" />
+        </property>
+        <property name="dapoUUID" type="string">
+            <column name="dapo_uuid" length="36" />
+        </property>
+    </class>
+</hibernate-mapping>
