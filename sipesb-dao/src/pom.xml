@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- This is a top-level POM so it has no parent -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.gzych.sipesb</groupId>
+	<artifactId>sipesb-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>sipesb-parent</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceVersion>1.6</project.build.sourceVersion>
+		<project.build.targetVersion>1.6</project.build.targetVersion>
+		<skipTests>true</skipTests>
+	</properties>
+
+		<modules>
+		<module>sipesb-console</module>
+		<module>sipesb-server</module>
+		<module>sipesb-kmd-epuap</module>
+		<module>sipesb-kmd-sip</module>
+		<module>sipesb-dao</module>
+		<module>sipesb-manager-factory</module>
+		<module>sipesb-dao-persist</module>
+	</modules>
+</project>
